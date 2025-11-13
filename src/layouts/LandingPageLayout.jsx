@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Navbar from '../components/navbar'
+//Code layout o trong day 
 function LandingPageLayout()
 {
     return (
-        <div className='w-full bg-yellow-500 min-h-80'>
+        <div className='w-[1440px] min-h-80 bg-yellow-500'>
             
         </div>
     )
