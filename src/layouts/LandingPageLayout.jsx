@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 //Code layout o trong day 
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import Landing from '../pages/Landing'
 function LandingPageLayout() {
     return (
@@ -11,7 +12,7 @@ function LandingPageLayout() {
             {/* Cho margintop di xuong dung bang kich thuoc cua navbar, khong biet lam cach nao cho tong quat nua  */}
                 <Landing />
             </div>
-
+            <Footer /> 
         </>
     )
 }

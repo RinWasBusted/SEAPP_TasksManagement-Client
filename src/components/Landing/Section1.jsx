@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { motion } from 'framer-motion'
 import SmallBlock from './SmallBlock'
+import TaskByGroup from './TaskByGroup'
 function Section1() {
 
     return (
-        <div className='w-full bg-[#f8f9fe] block min-h-60 pt-28 pb-8 px-10'>
+        <div className=' bg-[#f8f9fe] pt-28 pb-8 landing__section'>
             <button className='text-black rounded-3xl px-10 py-2 text-base bg-white shadow-lg'>
                 Boost your productivity
             </button>
@@ -21,9 +23,20 @@ function Section1() {
                     </p>
                     <div>
                         {/* button sign up */}
-                        <button className='px-14 grow-0 block py-4 mt-12 rounded-4xl shadow-xl text-2xl cursor-pointer bg-[#ff6568]'>
+                        <motion.button 
+                            className='px-14 grow-0 block py-4 mt-12 rounded-4xl shadow-xl text-2xl cursor-pointer bg-[#ff6568]'
+                            initial={{
+                                scale: 1, 
+                            }}
+                            whileHover={{
+                                scale: 1.1
+                            }}
+                            transition={{duration: 0.3, ease: "easeInOut"}}
+                            
+                            >
                             Sign Up Right Now
-                        </button>
+                        </motion.button>
+                        {/* Cac so lieu danh gia */}
                         <ul className='flex text-black items-center w-100 justify-between grow-0 mt-12 divide-x-2 divide-gray-500'>
                             <SmallBlock analysis={'10K+'} title={'User Rating'} />
                             <SmallBlock analysis={'10K+'} title={'User Rating'} />
@@ -33,15 +46,10 @@ function Section1() {
 
                 </div>
 
-                <div className='flex-1'>
-
+                <div className='flex-1 flex items-center justify-center'>
+                    <TaskByGroup /> 
                 </div>
             </div>
-
-
-
-
-
         </div>
     )
 }
