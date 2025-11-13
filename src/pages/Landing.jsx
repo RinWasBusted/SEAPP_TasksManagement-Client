@@ -11,11 +11,13 @@ function Landing()
 {
     return (
         <div className='bg-[#f8f9fe]'>
-            <Section1 /> 
-            <Section2 /> 
-            <Section3 /> 
-            <Section4 /> 
-            <Section5 /> 
+            <Section1 />
+            <Section2 />
+
+            <Section3 />
+
+            <Section4 />
+            <Section5 />
         </div>
     )
 }
