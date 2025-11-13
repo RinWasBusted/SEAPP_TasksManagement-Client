@@ -1,12 +1,26 @@
-- index.html: file HTML chính
-- src: Thư mục chứa mã nguồn
-  + assets: các file hình ảnh, logo, icon cố định của UI
-  + components: Chứa các component có thể tái sử dụng ở nhiều chỗ, các component cùng loại được nhóm lại thành các folder (ví dụ: button, card, menu,...)
-  + hooks: các file custom hook
-  + layouts: các layout component. (ví dụ: tạo layout gồm header và footer để bọc bên ngoài cùng của các trang home, dashboard, inner-blog,...)
-  + lib: dữ liệu cần có khi tải về và sử dụng các thư viện bên ngoài
-  + pages: Nơi chứa code của riêng các page, trong mỗi page folder sẽ lại có một folder component sử dụng riêng cho page đó
-  + router: chứa file config cho react route
-  + services: chứa các hàm giao tiếp với server, tổ chức các hàm theo file
-  + styles: các file css
-  + utils: các hàm hỗ trợ (pure function)
+# TỔNG QUAN DỰ ÁN 
+## 1. Cấu trúc thư mục 
+# 🗂️ Cấu trúc thư mục dự án React
+
+```md
+project/
+├── index.html               # 🔹 File HTML chính
+├── src/                     # 📁 Thư mục chứa mã nguồn
+│   ├── assets/              # 🖼️ Hình ảnh, logo, icon tĩnh của UI
+│   ├── components/          # ⚙️ Component tái sử dụng, chia theo loại (button, card, menu,...)
+│   ├── hooks/               # 🪝 Custom hooks
+│   ├── layouts/             # 🧩 Các layout component (vd: Header + Footer bọc quanh các trang)
+│   ├── lib/                 # 📚 Cấu hình / dữ liệu cần khi sử dụng thư viện ngoài
+│   ├── pages/               # 🖥️ Code riêng cho từng trang (home, dashboard, blog,...)
+│   │   └── components/      # 🔸 Component chỉ dùng trong trang cụ thể
+│   ├── router/              # 🗺️ Cấu hình React Router
+│   ├── services/            # 🔌 Hàm giao tiếp với server (API service)
+│   ├── styles/              # 🎨 File CSS / SCSS / Tailwind config
+│   └── utils/               # 🧮 Các hàm tiện ích (pure function)
+```
+
+## 2. Khởi động dự án 
+- Chạy lệnh `npm run dev`
+
+## 5. Note trong quá trình làm 
+1. Chỉnh sửa lại bố cục của thẻ body và thẻ root (Nếu khởi tạo theo cách này thì thẻ root mặc định căn giữa, nền thẻ body màu đen...). Vào file `App.css` và `index.css` để chỉnh sửa 
