@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Input from '../../components/Input';
 import CTA from '../../components/CTA';
+import Logo from '../../components/Logo';
 import { Checkbox } from '@mui/material';
 
 export default function LeftContent()
 {
     return (
-        <div className='h-full w-full bg-white px-[100px] pt-[10px]'>
+        <div className='h-full w-full bg-white px-[100px] pt-5'>
             {/* introduction */}
             <div className="font-[Montserrat] leading-tight w-full">
-                <h1 className="text-(--color-primary) font-bold text-[44px]">
-                NoTask
-                </h1>
+                <Logo/>
                 <p className="text-(--color-text-desc) font-medium">
                 Create your account to get started
                 </p>
@@ -20,12 +19,12 @@ export default function LeftContent()
 
             {/* input */}
             <div className="mt-2 gap-4">
-                <Input title="Full Name" />
+                <Input title="Full Name" placeholder='Your full name'/>
                 {/* email */}
-                <Input title="Email Address" />
+                <Input title="Email Address" placeholder='example@gmail.com' />
                 {/* password */}
-                <Input title="Password" />
-                <Input title="Confirm Password" />
+                <Input title="Password" isPassword='true' placeholder='••••••••'/>
+                <Input title="Confirm Password" isPassword='true' placeholder='••••••••' />
 
                 <div className="flex items-center text-(--color-primary) font-[Inter] font-medium">
                     <Checkbox/>
