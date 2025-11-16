@@ -14,16 +14,28 @@
   --color-in-progress: #0224FF;
   --color-not-started: #F21E1E;
   --color-completed: #05A301;
+  /*Noi khai bao cac bien mau danh cho lightmode */ 
+  --body-background: white; 
+  --body-color: black; 
+  --link-color: navy; 
 }
-
+* {
+  transition: all 0.3s ease-in-out;
+}
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
 }
-
-
+[data-theme="dark"] {
+  --body-background: #282c34; 
+  --body-color: white; 
+  --link-color: cyan; 
+}
+* {
+  transition: all; 
+}
 
 
 
