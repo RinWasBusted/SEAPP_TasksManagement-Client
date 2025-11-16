@@ -19,6 +19,11 @@
   --body-color: black; 
   --link-color: navy; 
 }
+[data-theme="dark"] {
+  --body-background: #282c34; 
+  --body-color: white; 
+  --link-color: cyan; 
+}
 * {
   transition: all 0.3s ease-in-out;
 }
@@ -28,11 +33,7 @@ body {
   display: flex;
   place-items: center;
 }
-[data-theme="dark"] {
-  --body-background: #282c34; 
-  --body-color: white; 
-  --link-color: cyan; 
-}
+
 * {
   transition: all; 
 }
