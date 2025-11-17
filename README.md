@@ -52,3 +52,53 @@ function Layout({children})
     {component....} 
 <Layout />
 ```
+
+
+
+### 5.4. Cách làm lightmode và darkmode 
+B1. Tải cái toggle Button về và viết thêm hàm. Khi button đổi thì set Attribute trong thẻ body lại thành light. Khi button 
+tắt thì set Settribute trong thẻ body lại thành dark 
+
+
+```css
+.for_light_theme {
+  --primary-color: #302ae6; 
+  --secondary-color: #536390; 
+  --font-color: #424242; 
+  --bg-color: #fff; 
+  --heading-color: #292922; 
+}
+.for_dark_theme {
+  --primary-color: #9a97f3; 
+  --secondary-color: #818cab; 
+  --font-color: #e1e1ff; 
+  --bg-color: #161625; 
+  --heading-color: #818cab; 
+}
+```
+
+### 5.5. Nguyên tắc viết path tối ưu cho trang web  
+
+**Về hình thức:** 
+
+#### 1. URL ngắn nhưng đầy đủ ngữ nghĩa 
+- URL càng dài thì Google càng hạn chế đọc      
+**Ví dụ**: /category/12345/product?id=67890 
+
+- URL cần đẩy đù, ngắn gọn và tự nhiên như cách người dùng tìm kiếm   
+**Ví dụ**: /hoc-react-co-ban 
+#### 2. Dùng dấu gạch -, tránh _ 
+- Nên tránh dấu _, cùng với các kí tự encode dài dòng: %20, &ref=abc...  
+- Hạn chế sử dụng các kí tự id vô nghĩa nếu không cần thiết 
+#### 3. Giữ URL đủ sâu ổn định 
+- Không nên để đường dẫn sâu quá, nên giữ ổn định 2 - 3 cấp  
+- Đừng để 1 nội dung mà có 2 - 3 đường dẫn khác nhau. Ví dụ: /dien-thoai/iphone-13 và /mobile/inphone-13 sẽ làm google hiểu thành duplicate 
+#### 4. Dùng chữ thường 
+
+**Về hệ thống** 
+
+- Không để lộ cấu trúc hệ thống qua URL  
+**Ví dụ**: `/index.php?page=product&id=123` (NOT)
+`/san-pham/ban-phim-co-akko-3098` (GOOD)
+
+- Không để thông tin người dùng (Ví dụ id, email) ngay trên thanh địa chỉ 

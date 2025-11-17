@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import HeaderPhase from '../../components/HeaderPhase'
 import FeatureCard from '../../components/FeatureCard'
-function Section2() {
+function FeatureSection() {
     return (
         <section className='landing__section bg-white py-12'>
             <HeaderPhase title={'Features'} />
@@ -41,4 +41,4 @@ function Section2() {
         </section>
     )
 }
-export default Section2
+export default FeatureSection
