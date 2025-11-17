@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useForm } from "react-hook-form";
 import Input from "../../components/Input";
 import CTA from '../../components/CTA';
 import Logo from "../../components/Logo";
@@ -11,6 +12,18 @@ function handleLogin()
 }
 
 export default function RightContent() {
+
+  const formHandleMethod = useForm({
+    mode: 'onChange', 
+    criteriaMode: 'all', 
+    reValidateMode: "onBlur", 
+  })
+  const {register , handleSubmit , formState : { errors }} = formHandleMethod 
+  //Data submit 
+  const onSubmit = (data) => {
+    const {Email , Password} = data //Du lieu tra ve 
+  }
+
   return (
     <div className="box-border h-full w-full bg-white px-[100px] pt-[72px]">
       {/* introduction */}
@@ -22,29 +35,34 @@ export default function RightContent() {
       </div>
 
       {/* input */}
-      <form className="mt-10 space-y-4" onSubmit={handleLogin}>
-        <Input title="Email Address" placeholder="example@gmail.com" isEmail={true} isRequired={true} name="email" />
-        <Input title="Password" placeholder="••••••••" isPassword={true} isRequired={true} name="password"/>
-
-        <div className="flex items-center text-(--color-primary) font-medium -mt-2">
-            <Checkbox/>
-            <p className="text-(--color-text)">Remember me</p>
-            <a className="ml-auto">Forgot password?</a>
+      <form className="mt-10 gap-4" onSubmit={handleSubmit(onSubmit)} >
+        {/* email */}
+        <Input title="Email Address" formType='Email' formHandleMethod={formHandleMethod} />
+        {/* password */}
+        <div className="my-4">
+          <Input title="Password" type="password" formType='Password' formHandleMethod={formHandleMethod}/>
         </div>
 
-        {/* btn */}
-        <div className="mt-4">
-          <CTA title='Login' type="submit"/>
-          <p className="text-(--color-text) mt-4 text-center">Don't have an account? <a href="/" className="text-(--color-primary) font-medium">Sign Up</a></p>
-          <div className="flex mt-6 items-center">
-              <div className="flex-2 border border-(--color-text-desc) h-px"/>
-              <p className="flex-1 text-(--color-text) text-center text-[18px]"> OR </p>
-              <div className="flex-2 border border-(--color-text-desc) h-px"/>
-          </div>
+        <div className="flex items-center text-(--color-primary) font-[Inter] font-medium">
+          <Checkbox />
+          <p className="text-(--color-text)">Remember me</p>
+          <a className="ml-auto">Forgot password?</a>
+        </div>
+        <CTA title='Login' type='submit' />
+      </form>
 
-          <div className="mt-6">
-              <CTA title="Continue with Google" backgroundColor="White" color="#403D3D" border="true" icon="google"/>
-          </div>
+      {/* login */}
+      <div className="mt-5">
+        
+        <p className="text-(--color-text) mt-4 text-center">Don't have an account? <a href="/" className="text-(--color-primary) font-medium">Sign Up</a></p>
+        <div className="flex mt-6 items-center">
+          <div className="flex-2 border border-(--color-text-desc) h-px" />
+          <p className="flex-1 text-(--color-text) text-center text-[18px]"> OR </p>
+          <div className="flex-2 border border-(--color-text-desc) h-px" />
+        </div>
+
+        <div className="mt-6">
+          <CTA title="Continue with Google" backgroundColor="White" color="#403D3D" border="true" icon="google" />
         </div>
       </form>
 
