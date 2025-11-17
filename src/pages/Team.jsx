@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import WorkingLayout from '../layouts/WorkingLayout'
 import GroupStastic from '../components/GroupStastic'
 import GroupCard from '../components/GroupCard'
-function Dashboard() {
+function Team() {
     return (
         <WorkingLayout>
             <div className='w-full h-full mb-20'>
@@ -17,9 +17,9 @@ function Dashboard() {
                 
                 <div className='mt-8 border overflow-y-scroll wrapper border-gray-600 rounded-md py-3 px-4 min-h-[700px] w-full'>
                     <div className='w-full flex items-center justify-between gap-3'>
-                        <GroupStastic stasticNumber={7} title='Total Teams' color='#7f7373' />
-                        <GroupStastic stasticNumber={20} title='Total Tasks' color='#bd7d7e' />
-                        <GroupStastic stasticNumber={39} title='Working Tasks' color='#109628' />
+                        <GroupStastic stasticNumber={7} title='Total Teams' additionalStyle='group_stastic__total__team'/>
+                        <GroupStastic stasticNumber={20} title='Total Tasks' additionalStyle='group_stastic__total__task' />
+                        <GroupStastic stasticNumber={39} title='Working Tasks' additionalStyle='group_stastic__total_working' />
 
                     </div>
                     <div className='my-4 w-full min-h-40 py-8 500 grid grid-cols-12 gap-x-6 gap-y-5'>
@@ -50,4 +50,4 @@ function Dashboard() {
         </WorkingLayout>
     )
 }
-export default Dashboard
+export default Team
