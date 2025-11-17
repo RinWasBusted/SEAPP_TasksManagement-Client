@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { motion } from 'framer-motion'
 import Section1SmallBlock from './Section1SmallBlock'
 import TaskByGroup from '../../components/TaskByGroup'
-function Section1() {
+function HeroSection() {
 
     return (
         <div className=' bg-[#f8f9fe] pt-28 pb-8 landing__section relative before:bg-[#f8f9fe] before:z-[-1] before:absolute before:top-0 before:h-full before:left-1/2 before:translate-x-[-50vw] before:w-screen'>
@@ -53,4 +53,4 @@ function Section1() {
         </div>
     )
 }
-export default Section1
+export default HeroSection
