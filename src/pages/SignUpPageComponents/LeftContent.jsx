@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useForm } from 'react-hook-form';
 import Input from '../../components/Input';
 import CTA from '../../components/CTA';
 import { Checkbox } from '@mui/material';
-
 export default function LeftContent()
 {
+    const formHandleMethod = useForm({
+        mode: 'onChange', 
+        reValidateMode: 'onChange', 
+        criteriaMode: 'all'
+    })
+    const {register , handleSubmit , formState : { errors }} = formHandleMethod 
+    const onSubmit = (data) => {
+        console.log(data) 
+    }
     return (
         <div className='h-full w-full bg-white px-[100px] pt-[10px]'>
             {/* introduction */}
@@ -19,23 +28,23 @@ export default function LeftContent()
             </div>
 
             {/* input */}
-            <div className="mt-2 gap-4">
-                <Input title="Full Name" />
+            <form className="mt-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
+                <Input title="Full Name" formHandleMethod={formHandleMethod} />
                 {/* email */}
-                <Input title="Email Address" />
+                <Input title="Email Address" formType={'Email'} formHandleMethod={formHandleMethod} />
                 {/* password */}
-                <Input title="Password" />
-                <Input title="Confirm Password" />
+                <Input title="Password" formType={'Password'} type='password' formHandleMethod={formHandleMethod} />
+                {/* <Input title="Confirm Password" /> */}
 
                 <div className="flex items-center text-(--color-primary) font-[Inter] font-medium">
                     <Checkbox/>
                     <p className="text-(--color-text)">I agree to <span className='text-(--color-primary)'>Terms of Service</span> and <span className='text-(--color-primary)'>Privacy Policy</span></p>
                 </div>
-            </div>
+                <CTA title='Create Account'/>
+            </form>
 
             {/* btn */}
             <div className="mt-3">
-                <CTA title='Create Account'/>
                 <p className="text-(--color-text) mt-2 text-center">Already have an account? <a href="/" className="text-(--color-primary) font-medium">Sign In</a></p>
                 <div className="flex mt-4 items-center">
                     <div className="flex-2 border border-(--color-text-desc) h-px"/>
