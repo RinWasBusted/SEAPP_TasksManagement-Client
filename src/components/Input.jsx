@@ -7,7 +7,7 @@ function Input({
     title = 'Default title',
     type = 'text',
     formHandleMethod = {},
-    formType //Dua cai formType nay de lay duoc Rule
+    formType = 'default' //Dua cai formType nay de lay duoc Rule
 }) {
     const { register, formState: { errors } } = formHandleMethod
     const [showType, setShowType] = useState(type)
