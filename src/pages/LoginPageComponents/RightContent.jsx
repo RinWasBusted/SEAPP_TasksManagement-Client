@@ -5,7 +5,7 @@ import Input from "../../components/Input";
 import CTA from '../../components/CTA';
 import Logo from "../../components/Logo";
 import { Checkbox } from "@mui/material";
-
+import { Link } from "react-router";
 function handleLogin()
 {
 
@@ -26,6 +26,10 @@ export default function RightContent() {
 
   return (
     <div className="box-border h-full w-full bg-white px-[100px] pt-[72px]">
+    {/* Link to go back */}
+      <Link to={'/'}>
+        <span className="absolute top-10 right-10 text-2xl text-(--color-primary) underline font-medium">Go back</span>
+      </Link>
       {/* introduction */}
       <div className="font-[Montserrat] leading-tight w-full">
         <Logo/>

@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router'
 import Section1SmallBlock from './Section1SmallBlock'
-import TaskByGroup from '../../components/TaskByGroup'
+import TaskByGroupLanding from './TaskByGroupLanding'
 function HeroSection() {
 
     return (
@@ -23,19 +24,21 @@ function HeroSection() {
                     </p>
                     <div>
                         {/* button sign up */}
-                        <motion.button 
-                            className='px-5 grow-0 block py-2 w-[450px] h-[90px] mt-12 rounded-[158px] shadow-xl text-2xl cursor-pointer bg-[#ff6568]'
-                            initial={{
-                                scale: 1, 
-                            }}
-                            whileHover={{
-                                scale: 1.1
-                            }}
-                            transition={{duration: 0.3, ease: "easeInOut"}}
-                            
+                        <Link to={'/register'}>
+                            <motion.button
+                                className='px-5 grow-0 block py-2 w-[450px] h-[90px] mt-12 rounded-[158px] shadow-xl text-2xl cursor-pointer bg-[#ff6568]'
+                                initial={{
+                                    scale: 1,
+                                }}
+                                whileHover={{
+                                    scale: 1.1
+                                }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+
                             >
-                            Sign Up Right Now
-                        </motion.button>
+                                Sign Up Right Now
+                            </motion.button>
+                        </Link>
                         {/* Cac so lieu danh gia */}
                         <ul className='flex text-black items-center w-100 justify-between grow-0 mt-12 divide-x-2 divide-gray-500'>
                             <Section1SmallBlock analysis={'10K+'} title={'User Rating'} />
@@ -47,7 +50,7 @@ function HeroSection() {
                 </div>
 
                 <div className='flex-1 flex items-center justify-center'>
-                    <TaskByGroup /> 
+                    <TaskByGroupLanding />
                 </div>
             </div>
         </div>

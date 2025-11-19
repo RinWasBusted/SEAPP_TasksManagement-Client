@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Link } from 'react-router'
 import Avatar from './Avatar'
 import SidebarItem from './SidebarItem'
 function WorkingSidebar() {
@@ -9,10 +10,19 @@ function WorkingSidebar() {
                 <Avatar/>
             </div>
             <ul className='w-full flex items-center justify-between flex-col gap-2'>
-                <SidebarItem icon={<i class="fa-regular fa-house"></i>} title='Dashboard'/> 
-                <SidebarItem icon={<i class="fa-solid fa-people-group"></i>} title='Teams'/> 
-                <SidebarItem icon={<i class="fa-solid fa-list-check"></i>} title='My Tasks'/> 
-                <SidebarItem icon={<i class="fa-solid fa-gear"></i>} title='Settings' /> 
+                <Link to={'/app/dashboard'}>
+                    <SidebarItem icon={<i class="fa-regular fa-house"></i>} title='Dashboard'/> 
+                </Link>
+                <Link to={'/app/teams'}>
+                    <SidebarItem icon={<i class="fa-solid fa-people-group"></i>} title='Teams'/> 
+                </Link>
+                <Link to={'/app/my-task'}>
+                     <SidebarItem icon={<i class="fa-solid fa-list-check"></i>} title='My Tasks'/> 
+
+                </Link>
+                <Link to={'/app/setting'}>
+                    <SidebarItem icon={<i class="fa-solid fa-gear"></i>} title='Settings' /> 
+                </Link>
                 
             </ul>
         </div>

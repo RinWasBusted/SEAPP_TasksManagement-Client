@@ -1,6 +1,7 @@
 import Landing from "../pages/Landing"
 import LoginPage from "../pages/LoginPage"
 import SignUpPage from "../pages/SignUpPage"
+import Dashboard from "../pages/Dashboard"
 import Team from "../pages/Team"
 const routes = [
     {
@@ -22,6 +23,12 @@ const routes = [
         path: 'app/teams', 
         element: Team, 
         desc: 'Trang team'
+    }, 
+    {
+        path: '/app/dashboard', 
+        element: Dashboard, 
+        desc: 'Trang dashboard'
     }
+    //my-task , setting ... 
 ]
 export default routes 
