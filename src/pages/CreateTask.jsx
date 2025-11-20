@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { useState } from 'react'
 import WorkingLayout from '../layouts/WorkingLayout'
 import StarterKit from '@tiptap/starter-kit'
 import { useEditor, EditorContent } from '@tiptap/react'
@@ -9,6 +10,11 @@ import Highlight from '@tiptap/extension-highlight'
 import TextAlign from '@tiptap/extension-text-align'
 import ImageUpload from './TextEditorComponents/ImageUpload'
 function CreateTask() {
+
+    const [data , setData] = useState({}) 
+    const [taskImage , setTaskImage] = useState(null) 
+    const [previewTaskImage , setPreviewTaskImage] = useState(null) 
+
 
 
     //mainEditor
@@ -41,18 +47,12 @@ function CreateTask() {
 
 
     
-
-
-
     return (
         <WorkingLayout>
             <div className='w-full h-[840px]  border p-6 rounded-xl border-gray-500 mb-10'>
                 {/* Header */}
                 <div className='flex items-start justify-start gap-6'>
-                    {/* <div className='bg-black rounded-xl w-[210px] h-[210px] mr-2'>
-
-                    </div> */}
-                    <ImageUpload /> 
+                   <ImageUpload hooks = {{ taskImage , setTaskImage , previewTaskImage , setPreviewTaskImage   }} /> 
                     <div className='flex-1'>
                         <h2 className='font-semibold text-2xl line-clamp-2 text-black'>Attend Nichlas party</h2>
                         <p className='text-black flex items-center justify-start gap-12 text-base mt-4'>
