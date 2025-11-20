@@ -197,3 +197,21 @@ async function loginSuccess(tokenResponse)
     console.log(userInfo) 
 }
 ```
+
+## 6. Tạo Rich Text Editor 
+B1. Dowload gói toolt ip 
+
+B2. index.tsx (File chứa editor chính) , Menubar.tsx (Tạo menu bar)
+
+**Bước 1**: Tạo file editor chính 
+
+
+
+**Bước 2**: Tạo Menu bar 
+Công cụ cần có: 
+shadcn: https://shadcn.com/component/toggle (gói dùng để định dạng icon... cho các button) 
+  => Muốn cài thì phải tạo file tsconfig.json và config path trong vite.config 
+  => Có lệnh để tạo: Nó sẽ tạo ra file components.json, viết lại file index.css
+Object options: Object được config sẵn, dùng để chứa các file icon, hiệu ứng tạo ra khi click 
+  => Gắn nó vào 1 editor được khai báo trong file index.tsx 
+  => Các định nghĩa hiệu ứng được tạo trong file index.css 
