@@ -199,19 +199,90 @@ async function loginSuccess(tokenResponse)
 ```
 
 ## 6. Tạo Rich Text Editor 
-B1. Dowload gói toolt ip 
 
-B2. index.tsx (File chứa editor chính) , Menubar.tsx (Tạo menu bar)
+**Bước 1**: Tạo editor 
+- Dùng component <Editor> cùng với ReactHook useEditor 
 
-**Bước 1**: Tạo file editor chính 
+- Khai báo cấu hình cho Editor 
 
+```js
+const editor = useEditor({
+        extensions: [
+            StarterKit.configure({
+                bulletList: {
+                    HTMLAttributes: {
+                        class: 'list-disc ml-4'
+                    }
+                },
+                orderedList: {
+                    HTMLAttributes: {
+                        class: 'list-decimal ml-4'
+                    }
+                }
+            }),
+            TextAlign.configure({
+                types: ['heading', 'paragraph'],
+            }),
+            Highlight,  //Khai bao cac extensions, co the search trong tip tap de tim cac extensions va thiet dat vao ben trong 
+            Image.configure({
+                allowBase64: true,
+                resize: {
+                    enabled: true,
+                    alwaysPreserveAspectRatio: true
+                }
+            })
+        ],
+        content: '<p>Hello world</p>',
+        editorProps: {
+            attributes: {
+                class: 'w-full h-[500px] border-2 overflow-y-auto rounded-md px-3 bg-slate-50 py-2 text-base border-slate-200  bg-white text-black outline-0'
+            }
+        }
+    }) 
+```
 
+Cấu hình được khai báo bằng cách sử dụng Hook useEditor, bên trong cung cấp: 
 
-**Bước 2**: Tạo Menu bar 
-Công cụ cần có: 
-shadcn: https://shadcn.com/component/toggle (gói dùng để định dạng icon... cho các button) 
-  => Muốn cài thì phải tạo file tsconfig.json và config path trong vite.config 
-  => Có lệnh để tạo: Nó sẽ tạo ra file components.json, viết lại file index.css
-Object options: Object được config sẵn, dùng để chứa các file icon, hiệu ứng tạo ra khi click 
-  => Gắn nó vào 1 editor được khai báo trong file index.tsx 
-  => Các định nghĩa hiệu ứng được tạo trong file index.css 
++ Danh sách extensions (các extensiosn 
+sẽ cung cấp thêm các chức năng cho Rich Text Editor, ví dụ: Highlight, Align, Order list, chèn hình ảnh...). Muốn cài đặt extensions nào thì tra mạng để xem cách cấu hinh cho extensions đó vào mảng 
+
++ content: Nội dung ban đầu dược hiển thị ra, viết 1 string gồm các thẻ HTML 
+
++ editorProps: Thêm các class (tailwind), CSS cho editor 
+
+**Bước 2**: Cài đặt Menubar 
+
+Sử dụng component Menubar được cung cấp, truyền thuộc tính editor vào 
+
+Bên trong Menubar, cung cấp cho nó các options (các nút bấm) để thao tác được với editor truyền vào (Highlight, bôi đậm, in nghiêng...) 
+
+`https://tiptap.dev/docs/examples/basics/formatting`
+
+Xem cách cài đặt các nút bấm ở đường link trên 
+
+**Bước 3** Làm cho Menubar đẹp lên 
+Sau Bước 2, nút bấm đã có nhưng còn rất xấu 
+
+Để làm dược đẹp, dùng thêm gói shadcn => tạo button với các icon đẹp 
+
+`https://ui.shadcn.com/docs/components/toggle` 
+
+Truy cập đường link và cài đặt gói shadcn theo hướng dẫn 
+
+Lưu ý: Trước khi cài đặt phải cấu hình lại dự án: tạo file config.json, khai báo thêm paths bên trong ts-config và import path vào bên trong file vite.config.js 
+
+Lấy mảng các icon tại đường link: 
+
+`https://github.com/candraKriswinarto/my-rich-text-editor`
+
+```js 
+return (
+      <div className="w-full border-2 border-slate-200 rounded-md space-x-3 p-1 mb-1 z-50">
+          {
+              Options.map((option , index) => {
+                  return <Toggle key={index} onPressedChange={option.onClick} pressed={true}>{option.icon}</Toggle>
+              })
+          }
+      </div>
+  )
+```   

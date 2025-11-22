@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import MessageLog from './MessageLog'
 
 function Modal({
     showModal,
@@ -34,7 +35,7 @@ function Modal({
 
         >
             <motion.div
-                className='bg-slate-200 z-99999 relative rounded-xl w-110 h-62 border border-slate-200 p-6'
+                className='bg-slate-200 z-99999 relative rounded-3xl w-110 h-62 border border-slate-200 p-6'
                 initial={{ y: 20 }}
                 animate={{ y: 0 }}
                 transition={{ transition: 'all', ease: 'easeInOut', duration: 0.3 }}
@@ -43,7 +44,7 @@ function Modal({
                     console.log('Child click')
                 }}
             >
-                <h2 className='text-2xl'>Sau đây là thông tin về cách thức tham gia</h2>
+                <h2 className='text-2xl pr-6'>Sau đây là thông tin về cách thức tham gia</h2>
                 <p className='text-gray-700 my-2'>Hãy gửi mã tham gia này cho những người mà bạn muốn làm việc cùng. Bạn nhớ lưu lại mã code để sử dụng sau</p>
                 <p
                     className='px-3 flex items-center justify-between py-2 text-lg text-black font-md mt-4 cursor-pointer rounded-md w-full bg-gray-300'
@@ -54,25 +55,10 @@ function Modal({
                         :
                         <i class="fa-solid fa-check text-lg text-gray-600 font-bold"></i>}
                 </p>
-                <i class="fa-solid fa-x absolute right-3 cursor-pointer hover:bg-gray-300 p-1 rounded-full text-lg top-4 text-black" onClick={handleClick}></i>
+                <i class="fa-solid fa-x absolute right-4 cursor-pointer hover:bg-gray-300 p-1 rounded-full text-lg top-4 text-black" onClick={handleClick}></i>
 
             </motion.div>
-
-            {(copyStatus === 'write-text') ?
-
-                <motion.div
-                    className='text-white bg-[#202124] w-110 flex items-center justify-start px-4 shadow-2xl rounded-md h-14 font-md fixed left-6 bottom-6 text-lg'
-                    onClick={(e) => { e.stopPropagation() }}
-                    initial={{ y: 20 }}
-                    animate={{ y: 0 }}
-                    transition={{ transition: 'all', ease: 'easeInOut', duration: '0.3' }}
-                >Đã sao chép mã tham gia của nhóm
-
-                </motion.div>
-                : 
-                <></>
-            }
-
+            <MessageLog showLog={copyStatus === 'write-text'} /> 
         </div>
     )
 }
