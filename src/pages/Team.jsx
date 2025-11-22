@@ -1,9 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { useState } from 'react'
+import { easeInOut, motion } from 'framer-motion'
 import WorkingLayout from '../layouts/WorkingLayout'
 import GroupStastic from '../components/GroupStastic'
 import GroupCard from '../components/GroupCard'
-function Team() {
+import Modal from '../components/modal'
+import { makeCode } from '../services/randomCode'
+function Team() { 
+    const [showModal , setShowModal] = useState(false) 
     return (
         <WorkingLayout>
             <div className='w-full h-full mb-20'>
@@ -46,7 +51,19 @@ function Team() {
                         </div>
                     </div>
                 </div>
+                <motion.button 
+                    className='absolute bg-(--color-primary) text-xl shadow-lg text-white font-medium px-5 py-4 rounded-xl top-0 right-0 cursor-pointer'
+                    initial={{scale: 1}} 
+                    whileHover={{scale: 1.08}}
+                    transition={{transition: 'all' , ease: 'easeInOut' , duration: 0.3}}
+                    onClick={() => setShowModal(true)}
+                    type='button'
+                >
+                    + Create team
+                </motion.button>
             </div>
+            {showModal && <Modal showModal={setShowModal} code={makeCode(8)} /> }  
+
         </WorkingLayout>
     )
 }
