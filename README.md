@@ -286,3 +286,6 @@ return (
       </div>
   )
 ```   
+
+## 7. Cài đặt React-Query 
+

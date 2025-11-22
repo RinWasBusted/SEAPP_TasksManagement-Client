@@ -6,6 +6,7 @@ import NotFound from './components/NotFound.jsx'
 import routes from './router/router.js'
 import CreateTask from './pages/CreateTask.jsx'
 import Modal from './components/modal.jsx'
+import Loading from './pages/LoadingModal.jsx'
 function App() {
   return (
     <>
@@ -26,7 +27,7 @@ function App() {
       </Routes>
     </>
     // <div>
-    //   <CreateTask /> 
+    //   <Loading /> 
 
     // </div>
   )
