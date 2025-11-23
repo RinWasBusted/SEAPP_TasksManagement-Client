@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import MessageLog from './MessageLog'
-
+import Spinner from './Spinner'  //Then loading vao ben trong 
 function Modal({
     showModal,
     code
